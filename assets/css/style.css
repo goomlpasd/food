@@ -1697,3 +1697,162 @@ section {
     border-radius: 10px;
     margin-bottom: 15px;
 }
+
+/* Mobile Responsive Cart Styles */
+@media screen and (max-width: 768px) {
+  .cart-content {
+    flex-direction: column;
+  }
+
+  .cart-table {
+    overflow-x: auto;
+  }
+
+  .cart-table table {
+    min-width: 500px; /* ให้สามารถเลื่อนดูตารางได้ในจอเล็ก */
+  }
+
+  .cart-items, .cart-summary {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .cart-progress {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .progress-step {
+    width: 100%;
+    text-align: center;
+  }
+
+  .summary-card {
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .cart-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checkout-btn, .clear-cart-btn {
+    width: 100%;
+  }
+
+  .promo-code {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .promo-code input,
+  .promo-code button {
+    width: 100%;
+  }
+}
+
+/* สำหรับจอที่เล็กมาก */
+@media screen and (max-width: 480px) {
+  .cart-container {
+    padding: 10px;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    padding: 8px 5px;
+    font-size: 14px;
+  }
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.summary-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px; /* จำกัดความกว���างสูงสุด */
+    margin: 0 auto; /* จัดให้อยู่กึ่งกลาง */
+}
+
+/* สำหรับมือถือ */
+@media screen and (max-width: 768px) {
+    .summary-card {
+        width: 90%; /* ให้มีขอบด้านข้างเล็กน้อย */
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cart-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .cart-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart-items {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .cart-table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .cart-summary {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .summary-card {
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .summary-details {
+        margin: 15px 0;
+    }
+
+    .promo-code {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .promo-code input,
+    .promo-code button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .cart-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .checkout-btn,
+    .clear-cart-btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 4px;
+    }
+}
