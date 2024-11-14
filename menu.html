@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ร้านอาหารออนไลน์</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-inner">
+
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/3.png" class="logo-img" alt="ร้านอาหารออนไลน์">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> หน้าแรก</a></li>
+                <li><a href="menu.html"><i class="fas fa-utensils"></i> เมนู</a></li>
+                <li>
+                    <a href="1.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge" style="display: none;">0</span>
+                        อาหารที่สั่ง
+                    </a>
+                </li>                
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+
+
+    <section id="menu">
+        <section class="popular-menu">
+            <h2>เมนูอาหาร</h2><br>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="assets/images/1-1.jpg" alt="Product 1"><br><br>
+                    <h3>ข้าวผัดกุ้ง</h3>
+                    <p>ราคา: 50 บาท</p>
+                    <button onclick="addToCart('ข้าวผัดกุ้ง', 50)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/1-2.jpg" alt="Product 2"><br><br>   
+                    <h3>ผัดไทยกุ้งสด</h3>
+                    <p>ราคา: 60 บาท</p>
+                    <button onclick="addToCart('ผัดไทยกุ้งสด', 60)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/1-3.jpg" alt="Product 3"><br><br>
+                    <h3>แกงเขียวหวานไก่</h3>
+                    <p>ราคา: 55 บาท</p>
+                    <button onclick="addToCart('แกงเขียวหวานไก่', 55)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+
+                <div class="product-card">
+                    <img src="assets/images/1-5.jpg" alt="Product 4"><br><br>
+                    <h3>ข้าวไข่ข้น</h3>
+                    <p>ราคา: 50 บาท</p>
+                    <button onclick="addToCart('ข้าวไข่ข้น',50)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/1-6.jpg" alt="Product 5"><br><br>   
+                    <h3>ส้มตำไทย</h3>
+                    <p>ราคา: 40 บาท</p>
+                    <button onclick="addToCart('ส้มตำไทย',40)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/1-7.jpg" alt="Product 6"><br><br>      
+                    <h3>ข้าวมันไก่</h3>
+                    <p>ราคา: 45 บาท</p>
+                    <button onclick="addToCart('ข้าวมันไก่',45)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/1-8.jpg" alt="Product 7"><br><br>   
+                    <h3>ปอเปี๊ยะทอด</h3>
+                    <p>ราคา: 30 บาท</p>
+                    <button onclick="addToCart('ปอเปี๊ยะทอด',30)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/1-9.jpg" alt="Product 8"><br><br>
+                    <h3>หมูทอดกระเทียม</h3>
+                    <p>ราคา: 50 บาท</p>
+                    <button onclick="addToCart('หมูทอดกระเทียม',50)" class="order-btn">
+                        <i class="fas fa-shopping-cart"></i> สั่งอาหาร
+                    </button><br>
+                </div>
+            </div>
+        </section>
+        <br><br>
+    </section>
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 ร้านอาหารอร่อย - All Rights Reserved</p>
+            <p>ที่อยู่: 123 ถนนอร่อย อำเภออาหาร จังหวัดอร่อยดี</p>
+            <p>โทร: 012-345-6789 | อีเมล: contact@restaurant.com</p>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="loader-container">
+        <img src="assets/images/loader.gif" alt="">
+    </div>
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>เว็บไซต์นี้ใช้คุกกี้เพื่อพัฒนาประสบการณ์การใช้งานของคุณ</p>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies()">ยอมรับ</button>
+            <button onclick="rejectCookies()" class="secondary">ปฏิเสธ</button>
+        </div>
+        </div>
+    </div>
+    <script src="assets/js/scrip.js"></script>
+    <script src="assets/js/showSlides.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/cookies.js"></script>
+</body>
+
+</html>
