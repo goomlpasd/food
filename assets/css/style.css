@@ -265,7 +265,7 @@ button:hover {
 
 /* ปรับ padding ของ body ให้พอดีกับ navbar */
 body {
-    padding-top: 80px; /* ต้องเท่ากับความสูงของ navbar */
+    padding-top: 80px; /* ต้องเท่า��ับความสูงของ navbar */
 }
 
 @media (max-width: 768px) {
@@ -990,7 +990,7 @@ section {
     margin-bottom: 40px;
 }
 
-/* ข้อมูลติดต่อ */
+/* ข��อมูลติดต่อ */
 .info-item {
     display: flex;
     align-items: flex-start;
@@ -1779,7 +1779,7 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 500px; /* จำกัดความกว���างสูงสุด */
+    max-width: 500px; /* จำกัดความกวางสูงสุด */
     margin: 0 auto; /* จัดให้อยู่กึ่งกลาง */
 }
 
@@ -1855,4 +1855,61 @@ section {
         padding: 12px;
         border-radius: 4px;
     }
+}
+
+.additional-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .additional-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.map-container, .reviews-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.review-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating {
+    color: #ffc107;
+}
+
+.reviewer-name {
+    font-weight: bold;
+}
+
+.review-text {
+    color: #666;
+    font-style: italic;
+}
+
+h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+h3 i {
+    margin-right: 8px;
+    color: #4a90e2;
 }

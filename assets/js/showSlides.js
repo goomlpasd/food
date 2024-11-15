@@ -24,3 +24,6 @@ document.addEventListener('click', (e) => {
         hamburger.classList.remove('active');
     }
 });
+
+
+

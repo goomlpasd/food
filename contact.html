@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ร้านอาหารออนไลน์</title>
+    <link rel="icon" type="image/png" href="assets/images/9.png">
+    <title>YoCook</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -64,7 +65,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h3>อีเมล</h3>
-                            <p>csdfe@sdf.com</p>
+                            <p>goodfood@gmail.com</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -76,31 +77,54 @@
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <h3>ส่งข้อความถึงเรา</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="ชื่อ-นามสกุล" required>
+
+                    <!-- Reviews Section -->
+                    <div class="reviews-container">
+                        <h3><i class="fas fa-star"></i> รีวิวจากลูกค้า</h3>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="reviewer-name">คุณ สมชาย</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-text">"อาหารอร่อยมาก บริการดีเยี่ยม บรรยากาศดี แนะนำเลยครับ"</p>
                         </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="อีเมล" required>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="reviewer-name">คุณ สมหญิง</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-text">"ราคาสมเหตุสมผล รสชาติอาหารดี จะกลับมาอุดหนุนอีกแน่นอนค่ะ"</p>
                         </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="เบอร์โทรศัพท์" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="ข้อความ" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> ส่งข้อความ
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
-
-        
         </div>
     </section>
+    <!-- Google Maps -->
+    <div class="map-container">
+        <h3><i class="fas fa-map-marked-alt"></i> แผนที่ร้าน</h3>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d496115.3313133451!2d100.35290282234278!3d13.724601490862454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d6032280d61f3%3A0x10100b25de24820!2z4LiB4Lij4Li44LiH4LmA4LiX4Lie4Lih4Lir4Liy4LiZ4LiE4Lij!5e0!3m2!1sth!2sth!4v1711099431099!5m2!1sth!2sth"
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -109,9 +133,15 @@
             <p>ที่อยู่: 123 ถนนอร่อย อำเภออาหาร จังหวัดอร่อยดี</p>
             <p>โทร: 000-000-0000 | อีเมล: csdf@sdf.com</p>
             <div class="social-links">
-                <a href="https://facebook.com" target="_blank">Facebook</a>
-                <a href="https://instagram.com" target="_blank">Instagram</a>
-                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://facebook.com" target="_blank">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
             </div>
         </div>
     </footer>
@@ -122,13 +152,17 @@
   <!-- Cookie Consent Banner -->
   <div id="cookie-banner" class="cookie-banner">
     <div class="cookie-content">
-        <p>เว็บไซต์นี้ใช้คุกกี้เพื่อพัฒนาประสบการณ์การใช้งานของคุณ</p>
+        <p>เว็บไซต์นี้ใช้คุกกีเพื่อพัฒนาประสบการณ์การใช้งานของคุณ</p>
         <div class="cookie-buttons">
             <button onclick="acceptCookies()">ยอมรับ</button>
             <button onclick="rejectCookies()" class="secondary">ปฏิเสธ</button>
         </div>
         </div>
     </div>
+
+
+
+
     <script src="assets/js/scrip.js"></script>
     <script src="assets/js/showSlides.js"></script>
     <script src="assets/js/cart.js"></script>
