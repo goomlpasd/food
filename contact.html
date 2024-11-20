@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="assets/images/9.png">
+    <title>YoCook</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/3.png" class="logo-img" alt="ร้านอาหารออนไลน์">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> หน้าแรก</a></li>
+                <li><a href="menu.html"><i class="fas fa-utensils"></i> เมนู</a></li>
+                <li><a href="1.html"><i class="fas fa-shopping-cart"></i> อาหารที่สั่ง</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a></li>
+
+
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+    <br>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>ติดต่อเรา</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>ที่อยู่</h3>
+                            <p>123 ถนนอร่อย อำเภออาหาร จังหวัดอร่อยดี 12345</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>เบอร์โทรศัพท์</h3>
+                            <p>098-167-9734</p><p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>อีเมล</h3>
+                            <p>yocook@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>เวลาทำการ</h3>
+                            <p>ทุกวัน 10:00 - 22:00 น.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <!-- Reviews Section -->
+                    <div class="reviews-container">
+                        <h3><i class="fas fa-star"></i> รีวิวจากลูกค้า</h3>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="reviewer-name">คุณ สมชาย</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-text">"อาหารอร่อยมาก บริการดีเยี่ยม บรรยากาศดี แนะนำเลยครับ"</p>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="reviewer-name">คุณ สมหญิง</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-text">"ราคาสมเหตุสมผล รสชาติอาหารดี จะกลับมาอุดหนุนอีกแน่นอนค่ะ"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Google Maps -->
+    <div class="map-container">
+        <h3><i class="fas fa-map-marked-alt"></i> แผนที่ร้าน</h3>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d496115.3313133451!2d100.35290282234278!3d13.724601490862454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d6032280d61f3%3A0x10100b25de24820!2z4LiB4Lij4Li44LiH4LmA4LiX4Lie4Lih4Lir4Liy4LiZ4LiE4Lij!5e0!3m2!1sth!2sth!4v1711099431099!5m2!1sth!2sth"
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 ร้านอาหารอร่อย - All Rights Reserved</p>
+            <p>ที่อยู่: 123 ถนนอร่อย อำเภออาหาร จังหวัดอร่อยดี</p>
+            <p>โทร: 098-167-9734 | อีเมล: yocook@gmail.com</p>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="loader-container">
+        <img src="assets/images/loader.gif" alt="">
+    </div>
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>เว็บไซต์นี้ใช้คุกกีเพื่อพัฒนาประสบการณ์การใช้งานของคุณ</p>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies()">ยอมรับ</button>
+            <button onclick="rejectCookies()" class="secondary">ปฏิเสธ</button>
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="assets/js/scrip.js"></script>
+    <script src="assets/js/showSlides.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/cookies.js"></script>
+</body> 
+
+</html>

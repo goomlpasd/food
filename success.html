@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="assets/images/9.png">
+    <title>ชำระเงินสำเร็จ - YoCook</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/3.png" class="logo-img" alt="ร้านอาหารออนไลน์">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> หน้าแรก</a></li>
+                <li><a href="menu.html"><i class="fas fa-utensils"></i> เมนู</a></li>
+                <li><a href="1.html"><i class="fas fa-shopping-cart"></i> อาหารที่สั่ง</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="success-container">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h1 class="success-title">ขอบคุณสำหรับการสั่งซื้อ!</h1>
+        <p class="success-message">การชำระเงินของคุณสำเร็จแล้ว</p>
+        
+        <div class="order-number">
+            <p>หมายเลขคำสั่งซื้อ: <strong id="orderNumber"></strong></p>
+        </div>
+
+        <div class="estimated-delivery">
+            <i class="fas fa-clock"></i>
+            <p>เวลาจัดส่งโดยประมาณ: <strong>30-45 นาที</strong></p>
+        </div>
+
+        <p class="success-message">
+            เราได้ส่งรายละเอียดการสั่งซื้อไปยังอีเมลของคุณแล้ว<br>
+            คุณสามารถติดตามสถานะการจัดส่งได้ในเมนู "อาหารที่สั่ง"
+        </p>
+
+        <a href="index.html" class="back-home">
+            <i class="fas fa-home"></i> กลับสู่หน้าหลัก
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 ร้านอาหารอร่อย - All Rights Reserved</p>
+            <p>ที่อยู่: 123 ถนนอร่อย อำเภออาหาร จังหวัดอร่อยดี</p>
+            <p>โทร: 098-167-9734 | อีเมล: yocook@gmail.com</p>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/success.js"></script>   
+
+</body>
+
+</html> 
