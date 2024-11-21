@@ -68,9 +68,12 @@ function displayOrderHistory() {
         return;
     }
 
-    let historyHTML = '<div class="order-history-list">';
+    let historyHTML = `
+        <div class="history-container">
+            <h2 class="history-title"><i class="fas fa-history"></i> ประวัติการสั่งซื้อ</h2>
+            <div class="order-history-list">
+    `;
     
-    // เรียงลำดับจากใหม่ไปเก่า
     orderHistory.reverse().forEach(order => {
         const orderDate = new Date(order.orderDate).toLocaleString('th-TH', {
             year: 'numeric',
@@ -131,7 +134,7 @@ function displayOrderHistory() {
         `;
     });
 
-    historyHTML += '</div>';
+    historyHTML += '</div></div>';
     container.innerHTML = historyHTML;
 }
 
