@@ -8,6 +8,7 @@
     <title>YoCook</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/orderHistory.css">
 </head>
 
 <body>
@@ -45,17 +46,18 @@
  <section class="cart-section">
     <div class="cart-container">
         <div class="cart-progress">
+            
             <div class="progress-step active">
                 <i class="fas fa-shopping-cart"></i>
                 <span>ตะกร้าสินค้า</span>
             </div>
             <div class="progress-step">
-                <i class="fas fa-address-card"></i>
-                <span>ข้อมูลการจัดส่ง</span>
+                <i class="fas fa-check-circle"></i>
+                <span>ข้อมูลจัดส่ง</span>
             </div>
             <div class="progress-step">
                 <i class="fas fa-check-circle"></i>
-                <span>ยืนยันการสั่งซื้อ</span>
+                <span>ประวัติการสั่งซื้อ</span>
             </div>
         </div>
 
@@ -80,6 +82,8 @@
                 </div>
             </div>
 
+            
+
             <div class="cart-summary">
                 <div class="summary-card">
                     <h3>สรุปรายการสั่งซื้อ</h3>
@@ -89,7 +93,7 @@
                             <span>฿<span id="delivery">30</span></span>
                         </div>
                         <div class="summary-row discount">
-                            <span>ส่วนลด</span>
+                            <span>ส่วนด</span>
                             <span>-฿<span id="discount">0</span></span>
                         </div>
                         <div class="summary-row total">
@@ -104,7 +108,7 @@
                     </div>
 
                     <div class="cart-buttons">
-                        <button class="checkout-btn" onclick="checkout()">
+                        <button class="checkout-btn" onclick="handlePayment()">
                             <i class="fas fa-shopping-bag"></i> ดำเนินการสั่งซื้อ
                         </button>
                         <button class="clear-cart-btn" onclick="clearCart()">
@@ -153,12 +157,65 @@
             <button onclick="rejectCookies()" class="secondary">ปฏิเสธ</button>
         </div>
         </div>
-    </div>
+    </div> 
+
 
     <script src="assets/js/scrip.js"></script>
     <script src="assets/js/showSlides.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/cookies.js"></script>
+
+    <!-- เพิ่ม payment.js แทน -->
+    <script src="assets/js/payment.js"></script>
+    <script src="assets/js/delivery.js"></script>
+
+    <!-- เพิ่ม HTML สำหรับ popup ไว้ที่ท้ายไฟล์ก่อน </body> -->
+    <div id="delivery-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>ข้อมูลจัดส่ง</h2>
+            <form id="shipping-form">
+                <div class="form-group">
+                    <label for="fullname">ชื่อ-นามสกุล <span class="required">*</span></label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">เบอร์โทรศัพท์ <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">อีเมล <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">ที่อยู่จัดส่ง <span class="required">*</span></label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="note">หมายเหตุเพิ่มเติม</label>
+                    <textarea id="note" name="note" rows="2"></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="confirm-btn" onclick="confirmDeliveryInfo()">
+                        <i class="fas fa-check"></i> ยืนยันข้อมูล
+                    </button>
+                    <button type="button" class="cancel-btn" onclick="closeDeliveryPopup()">
+                        <i class="fas fa-times"></i> ยกเลิก
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="order-history-container"></div>
+
+    <script src="assets/js/orderHistory.js"></script>
+
 </body> 
 
 </html>

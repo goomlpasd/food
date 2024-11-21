@@ -1,18 +1,20 @@
- // Generate random order number
- function generateOrderNumber() {
-    const timestamp = new Date().getTime().toString().slice(-6);
-    const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-    return `YC${timestamp}${random}`;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // ดึงข้อมูลประวัติการสั่งซื้อล่าสุด
+    const orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+    const latestOrder = orderHistory[orderHistory.length - 1];
 
-// Set order number when page loads
-document.getElementById('orderNumber').textContent = generateOrderNumber();
+    if (latestOrder) {
+        // แสดงหมายเลขคำสั่งซื้อ
+        const orderNumber = document.getElementById('orderNumber');
+        if (orderNumber) {
+            orderNumber.textContent = latestOrder.orderId;
+        }
 
-// Hamburger menu toggle
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
-
-// Clear cart after successful payment
-localStorage.removeItem('cart');
+        // บันทึกเวลาที่สั่งซื้อ
+        const orderTime = new Date(latestOrder.orderDate);
+        localStorage.setItem('lastOrderTime', orderTime.toString());
+    } else {
+        // กรณีไม่พบข้อมูลการสั่งซื้อ ให้ redirect กลับไปหน้าหลัก
+        window.location.href = 'index.html';
+    }
+});
