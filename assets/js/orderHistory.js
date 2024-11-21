@@ -22,19 +22,29 @@ function setupProgressStepsClickHandlers() {
 }
 
 function showOrderHistory() {
+    // อัพเดท progress steps
     updateProgressSteps(2);
+    
+    // ซ่อนส่วนตะกร้าสินค้า
+    document.querySelector('.cart-container').style.display = 'none';
+    
+    // แสดงส่วนประวัติการสั่งซื้อ
+    const historySection = document.querySelector('.order-history-section');
+    historySection.style.display = 'block';
+    
+    // แสดงข้อมูลประวัติการสั่งซื้อ
     displayOrderHistory();
-    // เพิ่ม hash ใน URL
-    window.location.hash = 'history';
 }
 
 function showCart() {
+    // อัพเดท progress steps
     updateProgressSteps(0);
+    
     // แสดงตะกร้าสินค้า
-    document.querySelector('.cart-content').style.display = 'block';
-    document.getElementById('order-history-container').innerHTML = '';
-    // ลบ hash ออกจาก URL
-    window.location.hash = '';
+    document.querySelector('.cart-container').style.display = 'block';
+    
+    // ซ่อนส่วนประวัติการสั่งซื้อ
+    document.querySelector('.order-history-section').style.display = 'none';
 }
 
 function updateProgressSteps(activeIndex) {
@@ -53,9 +63,6 @@ function displayOrderHistory() {
     const orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
     const container = document.getElementById('order-history-container');
     
-    // ซ่อนส่วนตะกร้าสินค้า
-    document.querySelector('.cart-content').style.display = 'none';
-    
     if (orderHistory.length === 0) {
         container.innerHTML = `
             <div class="no-orders">
@@ -68,11 +75,7 @@ function displayOrderHistory() {
         return;
     }
 
-    let historyHTML = `
-        <div class="history-container">
-            <h2 class="history-title"><i class="fas fa-history"></i> ประวัติการสั่งซื้อ</h2>
-            <div class="order-history-list">
-    `;
+    let historyHTML = `<div class="order-list">`;
     
     orderHistory.reverse().forEach(order => {
         const orderDate = new Date(order.orderDate).toLocaleString('th-TH', {
@@ -84,7 +87,7 @@ function displayOrderHistory() {
         });
 
         historyHTML += `
-            <div class="order-card">
+            <div class="order-item">
                 <div class="order-header">
                     <div class="order-info">
                         <h3>คำสั่งซื้อ #${order.orderId}</h3>
@@ -94,8 +97,7 @@ function displayOrderHistory() {
                         ${getPaymentStatusText(order.paymentStatus)}
                     </div>
                 </div>
-                
-                <div class="order-items">
+                <div class="order-details">
                     ${order.items.map(item => `
                         <div class="item-row">
                             <span class="item-name">${item.name}</span>
@@ -103,38 +105,15 @@ function displayOrderHistory() {
                             <span class="item-price">฿${item.total.toLocaleString()}</span>
                         </div>
                     `).join('')}
-                </div>
-
-                <div class="order-summary">
-                    <div class="summary-row">
-                        <span>ค่าจัดส่ง:</span>
-                        <span>฿${order.deliveryFee.toLocaleString()}</span>
-                    </div>
-                    ${order.discount ? `
-                        <div class="summary-row discount">
-                            <span>ส่วนลด:</span>
-                            <span>-฿${order.discount.toLocaleString()}</span>
-                        </div>
-                    ` : ''}
-                    <div class="summary-row total">
+                    <div class="order-total">
                         <span>ยอดรวมทั้งสิ้น:</span>
                         <span>฿${order.totalAmount.toLocaleString()}</span>
                     </div>
                 </div>
-
-                <div class="shipping-details">
-                    <h4>ข้อมูลการจัดส่ง</h4>
-                    <p><strong>ชื่อผู้รับ:</strong> ${order.shippingData.fullname}</p>
-                    <p><strong>ที่อยู่:</strong> ${order.shippingData.address}</p>
-                    <p><strong>เบอร์โทร:</strong> ${order.shippingData.phone}</p>
-                    <p><strong>อีเมล:</strong> ${order.shippingData.email}</p>
-                    ${order.shippingData.note ? `<p><strong>หมายเหตุ:</strong> ${order.shippingData.note}</p>` : ''}
-                </div>
-            </div>
-        `;
+            </div>`;
     });
 
-    historyHTML += '</div></div>';
+    historyHTML += '</div>';
     container.innerHTML = historyHTML;
 }
 
