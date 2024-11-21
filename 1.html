@@ -43,21 +43,23 @@
 
 
  <!-- Cart Section -->
- <section class="cart-section">
-    <div class="cart-container">
-        <div class="cart-progress">
-            
-            <div class="progress-step active" data-step="cart">
-                <i class="fas fa-shopping-cart"></i>
-                <span>ตะกร้าสินค้า</span>
-            </div>
-
-            <div class="progress-step" data-step="history">
-                <i class="fas fa-history"></i>
-                <span>ประวัติการสั่งซื้อ</span>
-            </div>
+ <div class="cart-wrapper">
+    <div class="cart-progress">
+        <div class="progress-step active" data-step="cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span>ตะกร้าสินค้า</span>
         </div>
+        <div class="progress-step" data-step="payment">
+            <i class="fas fa-credit-card"></i>
+            <span>ชําระเงินเสร็จสิ้น</span>
+        </div>
+        <div class="progress-step" data-step="history">
+            <i class="fas fa-history"></i>
+            <span>ประวัติการสั่งซื้อ</span>
+        </div>
+    </div>
 
+    <div class="cart-container">
         <div class="cart-content">
             <div class="cart-items">
                 <h2>รายการอาหาร</h2>
@@ -116,7 +118,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
     <!-- Footer -->
     <footer class="footer">

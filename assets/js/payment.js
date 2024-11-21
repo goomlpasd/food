@@ -4,40 +4,39 @@ const CONFIG = {
 };
 
 async function handlePayment() {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    
-    if (cartItems.length === 0) {
-        alert('กรุณาเพิ่มสินค้าในตะกร้าก่อนดำเนินการสั่งซื้อ');
-        return;
-    }
-
-    const shippingData = localStorage.getItem('shippingData');
-    if (!shippingData) {
-        showDeliveryPopup();
-        return;
-    }
-
-    await initiatePayment(JSON.parse(shippingData));
-}
-
-async function initiatePayment(shippingData) {
     const button = document.querySelector('.checkout-btn');
     
     try {
-        // เตรียมข้อมูลการสั่งซื้อ
-        const orderData = await prepareOrderData(shippingData);
-        
-        // แสดง loading state
+        // แสดง loading state ทันที
         setLoadingState(button, true);
 
-        // สร้าง payment link
-        const paymentData = await createPaymentLink(orderData);
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        
+        if (cartItems.length === 0) {
+            alert('กรุณาเพิ่มสินค้าในตะกร้าก่อนดำเนินการสั่งซื้อ');
+            return;
+        }
+
+        const shippingData = localStorage.getItem('shippingData');
+        if (!shippingData) {
+            showDeliveryPopup();
+            return;
+        }
+
+        // เตรียมข้อมูลการสั่งซื้อ
+        const orderData = await prepareOrderData(JSON.parse(shippingData));
+        
+        // กำหนด timeout สำหรับการเชื่อมต่อ API
+        const timeoutDuration = 10000; // 10 วินาที
+        const paymentData = await Promise.race([
+            createPaymentLink(orderData),
+            new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('หมดเวลาการเชื่อมต่อ')), timeoutDuration)
+            )
+        ]);
 
         if (paymentData.success && paymentData.paymentUrl) {
-            // บันทึกข้อมูลการสั่งซื้อ
             await saveOrderData(orderData, paymentData.orderId);
-            
-            // redirect ไปยังหน้าชำระเงิน
             window.location.href = paymentData.paymentUrl;
         } else {
             throw new Error(paymentData.error || 'เกิดข้อผิดพลาดในการสร้างลิงก์ชำระเงิน');
@@ -139,9 +138,11 @@ async function saveOrderData(orderData, orderId) {
 function setLoadingState(button, isLoading) {
     if (isLoading) {
         button.disabled = true;
+        button.style.backgroundColor = '#cccccc';
         button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังดำเนินการ...';
     } else {
         button.disabled = false;
+        button.style.backgroundColor = '';
         button.innerHTML = '<i class="fas fa-shopping-bag"></i> ดำเนินการสั่งซื้อ';
     }
 }

@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
     const latestOrder = orderHistory[orderHistory.length - 1];
 
-    if (!latestOrder) {
-        // แสดง alert และ redirect กลับไปหน้าแรก
-        alert('ไม่พบข้อมูลการสั่งซื้อ');
-        window.location.href = 'index.html';
-        return;
+    // อัพเดทสถานะการชำระเงิน
+    if (latestOrder) {
+        latestOrder.paymentStatus = 'paid'; // เพิ่มสถานะการชำระเงิน
+        localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
     }
 
     try {
@@ -37,6 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.error('เกิดข้อผิดพลาดในการแสดงข้อมูล กรุณาลองใหม่อีกครั้ง');
         alert('เกิดข้อผิดพลาดในการแสดงข้อมูล กรุณาลองใหม่อีกครั้ง');
-        window.location.href = 'index.html';
+        window.location.href = '1.html';
     }
 });

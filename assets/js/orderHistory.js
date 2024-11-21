@@ -68,5 +68,78 @@ function displayOrderHistory() {
         return;
     }
 
-    // ... โค้ดส่วนที่เหลือคงเดิม ...
+    let historyHTML = '<div class="order-history-list">';
+    
+    // เรียงลำดับจากใหม่ไปเก่า
+    orderHistory.reverse().forEach(order => {
+        const orderDate = new Date(order.orderDate).toLocaleString('th-TH', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        historyHTML += `
+            <div class="order-card">
+                <div class="order-header">
+                    <div class="order-info">
+                        <h3>คำสั่งซื้อ #${order.orderId}</h3>
+                        <span class="order-date">${orderDate}</span>
+                    </div>
+                    <div class="order-status ${order.paymentStatus}">
+                        ${getPaymentStatusText(order.paymentStatus)}
+                    </div>
+                </div>
+                
+                <div class="order-items">
+                    ${order.items.map(item => `
+                        <div class="item-row">
+                            <span class="item-name">${item.name}</span>
+                            <span class="item-quantity">x${item.quantity}</span>
+                            <span class="item-price">฿${item.total.toLocaleString()}</span>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>ค่าจัดส่ง:</span>
+                        <span>฿${order.deliveryFee.toLocaleString()}</span>
+                    </div>
+                    ${order.discount ? `
+                        <div class="summary-row discount">
+                            <span>ส่วนลด:</span>
+                            <span>-฿${order.discount.toLocaleString()}</span>
+                        </div>
+                    ` : ''}
+                    <div class="summary-row total">
+                        <span>ยอดรวมทั้งสิ้น:</span>
+                        <span>฿${order.totalAmount.toLocaleString()}</span>
+                    </div>
+                </div>
+
+                <div class="shipping-details">
+                    <h4>ข้อมูลการจัดส่ง</h4>
+                    <p><strong>ชื่อผู้รับ:</strong> ${order.shippingData.fullname}</p>
+                    <p><strong>ที่อยู่:</strong> ${order.shippingData.address}</p>
+                    <p><strong>เบอร์โทร:</strong> ${order.shippingData.phone}</p>
+                    <p><strong>อีเมล:</strong> ${order.shippingData.email}</p>
+                    ${order.shippingData.note ? `<p><strong>หมายเหตุ:</strong> ${order.shippingData.note}</p>` : ''}
+                </div>
+            </div>
+        `;
+    });
+
+    historyHTML += '</div>';
+    container.innerHTML = historyHTML;
+}
+
+function getPaymentStatusText(status) {
+    const statusMap = {
+        'pending': 'รอการชำระเงิน',
+        'paid': 'ชำระเงินแล้ว',
+        'cancelled': 'ยกเลิก'
+    };
+    return statusMap[status] || status;
 } 

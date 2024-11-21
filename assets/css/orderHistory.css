@@ -1,13 +1,37 @@
+.cart-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 80px;
+    z-index: 1000;
+}
+
+/* ปรับ progress step */
 .progress-step {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 10px 20px;
-    border-radius: 20px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #f8f9fa;
+    margin: 0 3px;
+    font-size: 0.9em;
 }
 
 .progress-step:hover {
-    background-color: #f0f0f0;
+    background-color: #e9ecef;
 }
 
 .progress-step.active {
@@ -19,28 +43,50 @@
     color: white;
 }
 
-.cart-progress {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    padding: 20px;
+/* ปรับ container */
+.cart-container {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 15px;
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* เพิ่ม animation เมื่อเปลี่ยน step */
-.cart-content, #order-history-container {
-    animation: fadeIn 0.3s ease-in-out;
+/* ปรับ animation */
+.cart-content, 
+#order-history-container {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+/* เพิ่ม media queries */
+@media (max-width: 768px) {
+    .cart-progress {
+        top: 60px;
+        padding: 10px;
+        margin: 10px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .progress-step {
+        padding: 8px;
+        font-size: 0.9em;
     }
-} 
+
+    .progress-step span {
+        display: none; /* ซ่อนข้อความบนมือถือ แสดงแค่ไอคอน */
+    }
+}
+
+/* เพิ่ม wrapper สำหรับ fixed layout */
+.cart-wrapper {
+    position: relative;
+    min-height: calc(100vh - 200px); /* ปรับความสูงตามต้องการ */
+    padding-top: 20px;
+}
+
+/* ปรับขนาดไอคอน */
+.progress-step i {
+    font-size: 0.9em;
+}
+  
