@@ -1,57 +1,120 @@
 .success-container {
-    text-align: center;
-    padding: 50px 20px;
     max-width: 600px;
     margin: 50px auto;
-    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .success-icon {
     color: #4CAF50;
-    font-size: 80px;
+    font-size: 64px;
     margin-bottom: 20px;
 }
 
-.success-title {
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 15px;
+.order-number {
+    font-size: 18px;
+    color: #666;
+    margin: 15px 0;
 }
 
 .success-message {
-    color: #666;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+    margin: 20px 0;
 }
 
-.order-number {
-    background-color: #f5f5f5;
-    padding: 10px 20px;
-    border-radius: 5px;
+.back-button {
     display: inline-block;
-    margin-bottom: 30px;
-}
-
-.back-home {
-    display: inline-block;
+    padding: 12px 24px;
     background-color: #4CAF50;
     color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
     text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
     transition: background-color 0.3s;
 }
 
-.back-home:hover {
+.back-button:hover {
     background-color: #45a049;
 }
 
-.estimated-delivery {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
+.order-details {
+    text-align: left;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f9f9f9;
     border-radius: 5px;
+}
+
+.order-details h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.detail-item {
+    margin: 10px 0;
+    color: #666;
+}
+
+.success-card {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.order-details {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.order-details p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.order-details span {
+    font-weight: 500;
+    color: #333;
+}
+
+.total-amount {
+    font-size: 1.2em;
+    color: #e44d26;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.action-buttons a {
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-home {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-history {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-home:hover, .btn-history:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }

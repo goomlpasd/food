@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/9.png">
+    <title>สั่งซื้อสำเร็จ - YoCook</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/success.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/3.png" class="logo-img" alt="ร้านอาหารออนไลน์">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> หน้าแรก</a></li>
+                <li><a href="menu.html"><i class="fas fa-utensils"></i> เมนู</a></li>
+                <li><a href="1.html"><i class="fas fa-shopping-cart"></i> อาหารที่สั่ง</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="success-container">
+        <div class="success-card">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h1>สั่งซื้อสำเร็จ</h1>
+            <div class="order-details">
+                <p>หมายเลขคำสั่งซื้อ: <span id="orderNumber"></span></p>
+                <p>วันที่สั่งซื้อ: <span id="orderDate"></span></p>
+                <hr>
+                <h3>ข้อมูลการจัดส่ง</h3>
+                <p>ชื่อผู้รับ: <span id="customerName"></span></p>
+                <p>ที่อยู่จัดส่ง: <span id="shippingAddress"></span></p>
+                <p>เบอร์โทร: <span id="phoneNumber"></span></p>
+                <p>อีเมล: <span id="email"></span></p>
+                <hr>
+                <p class="total-amount">ยอดรวมทั้งสิ้น: ฿<span id="totalAmount"></span></p>
+            </div>
+            <div class="action-buttons">
+                <a href="index.html" class="btn-home">
+                    <i class="fas fa-home"></i> กลับหน้าแรก
+                </a>
+                <a href="1.html" class="btn-history">
+                    <i class="fas fa-history"></i> ดูประวัติการสั่งซื้อ
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/success.js"></script>
+</body>
+</html>

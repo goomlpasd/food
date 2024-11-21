@@ -47,16 +47,13 @@
     <div class="cart-container">
         <div class="cart-progress">
             
-            <div class="progress-step active">
+            <div class="progress-step active" data-step="cart">
                 <i class="fas fa-shopping-cart"></i>
                 <span>ตะกร้าสินค้า</span>
             </div>
-            <div class="progress-step">
-                <i class="fas fa-check-circle"></i>
-                <span>ข้อมูลจัดส่ง</span>
-            </div>
-            <div class="progress-step">
-                <i class="fas fa-check-circle"></i>
+
+            <div class="progress-step" data-step="history">
+                <i class="fas fa-history"></i>
                 <span>ประวัติการสั่งซื้อ</span>
             </div>
         </div>
@@ -215,6 +212,7 @@
     <div id="order-history-container"></div>
 
     <script src="assets/js/orderHistory.js"></script>
+
 
 </body> 
 
